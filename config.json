@@ -1,0 +1,20 @@
+{
+  "siteName": "G-landia.com",
+  "db": {
+    "host": "127.0.0.1",
+    "port": "27017",
+    "name": "g-landia",
+    "user": "root",
+    "password": "root"
+  },
+  "session": {
+    "secret": "it:demo:secret",
+    "key": "sid",
+    "cookie": {
+      "path": "/",
+      "httpOnly": true,
+      "maxAge": null
+    }
+  },
+  "mainTemplate": "templates/content/main/index"
+}

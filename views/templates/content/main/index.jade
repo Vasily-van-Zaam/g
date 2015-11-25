@@ -1,0 +1,53 @@
+extends layout
+
+mixin regForm(map)
+    if map && map.on
+        h4 Register your account
+        form(action='/register' method='post')
+            fieldset
+                label(for='email') Email
+                input(type='email' name='email' placeholder='Your Email')
+                label(for='password') Password
+                input(type='password' name='password' placeholder='Your Password')
+                button(type='Register') Go
+mixin loginForm(map)
+    if map && map.on
+        h2 Login
+        form(action='/login' method='POST')
+            label Login
+            input( name='email')
+            label(for='password') Password
+            input(name='passwoed' type='password')
+            button(type='submit') Login
+
+block header
+    div(class='navbar  navbar-default navbar-fixed-top" role="navigation')
+        div(class='container')
+            div(class="navbar-header")
+                button(type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse")
+                   span( class="sr-only") Toggle navigation
+                   span( class="icon-bar")
+                   span( class="icon-bar")
+                   span( class="icon-bar")
+                a(class="navbar-brand" href="#") G-Landia
+            div(class="collapse navbar-collapse")
+
+
+block content
+
+
+    div(class='container')
+        div(class='row')
+            form(method='get' action='/auth')
+                button LogIn
+            form(method='get' action='/logout')
+                button Out
+        div(class='row')
+            h1 #{title}
+            div(class='form')= header
+                    p= textMain('header')
+                    p= config.get()
+                    p= req
+
+
+    include ../../../plugins/users/signup
